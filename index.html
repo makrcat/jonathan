@@ -46,7 +46,7 @@
 
     function spinrandomly() {
         const randomAngle = Math.floor(Math.random() * 360) + s;
-        s += 360; // increase spin i guess
+        s += 360 * 3; // increase spin i guess
 
         arrow.style.transform = `rotate(${randomAngle}deg)`;
         spuns += 1;
