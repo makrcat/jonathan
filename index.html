@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Centered Image</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #arrow {
+        border: 1px solid rgb(109, 106, 87);
+        transition: transform 0.6s ease-in-out;
+        cursor: pointer;
+        height: 30vh;
+    }
+
+    #arrow:hover {
+        box-shadow: 0 0 15px rgba(248, 199, 4, 0.8);
+    }
+
+    #spuntimes {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <span id="spuntimes">Spun 0 times</span>
+    <img id="arrow" src="image.png" alt="image">
+
+  <script>
+    const arrow = document.getElementById('arrow');
+    const spuntimes = document.getElementById('spuntimes');
+    let s = 360;
+    let spuns = 0;
+
+    function spinrandomly() {
+        const randomAngle = Math.floor(Math.random() * 360) + s;
+        s += 360; // increase spin i guess
+
+        arrow.style.transform = `rotate(${randomAngle}deg)`;
+        spuns += 1;
+        spuntimes.textContent = `Spun ${spuns} times`;
+    }
+
+    arrow.onclick = spinrandomly;
+  </script>
+</body>
+</html>
